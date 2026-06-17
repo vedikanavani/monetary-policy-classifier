@@ -25,11 +25,18 @@ app.add_middleware(
 # -----------------------
 # 3. Load dataset
 # -----------------------
-df = pd.read_csv("bank_statement_data.csv")
+df = pd.read_csv("train.csv")
 
-texts = df["TEXT"]
+label_map = {
+    0: "dovish",
+    1: "hawkish",
+    2: "neutral"
+}
+
+df["LABEL"] = df["label"].map(label_map)
+
+texts = df["sentence"]
 labels = df["LABEL"]
-
 # -----------------------
 # 4. Train model ONCE at startup
 # -----------------------
@@ -38,6 +45,12 @@ X = vectorizer.fit_transform(texts)
 
 model = LogisticRegression()
 model.fit(X, labels)
+
+print("CLASSES:")
+print(model.classes_)
+
+print("LABEL COUNTS:")
+print(df["LABEL"].value_counts())
 
 # -----------------------
 # 5. Define request format
