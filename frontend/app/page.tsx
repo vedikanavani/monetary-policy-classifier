@@ -44,14 +44,12 @@ export default function Home() {
         </h1>
 
         <p className="description">
-          This tool analyzes central bank statements and classifies them as either
+          This tool analyzes uses a logistic regression model to classify statements as either
           hawkish or dovish based on the underlying monetary policy stance. A hawkish
           tone typically signals concerns about inflation and a tendency toward tighter
-          monetary policy such as interest rate hikes. A dovish tone reflects concern
-          for economic growth and employment, often indicating a preference for lower
-          interest rates or accommodative policy. The classifier uses natural language
-          processing to interpret linguistic cues in financial communication and provide
-          a quick, structured interpretation of policy intent.
+          monetary policy. A dovish tone reflects concern for economic growth and employment, often indicating a 
+          preference for lower interest rates or accommodative policy. The model is trained on data available 
+          from the GeorgiaTech Financial Services Innovation Lab. 
         </p>
 
         <div className="inputWrapper">
